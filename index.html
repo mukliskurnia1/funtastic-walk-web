@@ -24,8 +24,8 @@
         const googleScriptUrl = "https://script.google.com/macros/s/AKfycbzebZuQ3E4wJeIN2D7QR660ZyQB_SNUdfdAfF3RRETgITCs7rd4pb8u-SnuOcD-LoMmGg/exec";
         const currentParams = window.location.search || "";
         
-        // Redirect otomatis (melempar user ke URL Google Script beserta ?page=... nya)
-        window.location.replace(googleScriptUrl + currentParams);
+        // PERBAIKAN: Menggunakan window.top.location.href untuk menjebol keluar dari iframe
+        window.top.location.href = googleScriptUrl + currentParams;
     </script>
 
 </body>
