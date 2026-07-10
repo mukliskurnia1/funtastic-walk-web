@@ -4,27 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sumedang Funtastic Walk 2026</title>
-    <link rel="icon" href="https://res.cloudinary.com/dvvjbnjzd/image/upload/v1234567/logo_anda.jpg" type="image/png">
+    <link rel="icon" href="https://res.cloudinary.com/dvvjbnjzd/image/upload/v1781416074/header_14062026_a8zpnh.jpg" type="image/png">
     <style>
-        /* Menghilangkan pinggiran agar web Google tampil penuh 100% layar */
-        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background-color: #f4f7f6; }
-        iframe { width: 100%; height: 100%; border: none; display: block; }
-    </style>
+        /* Menghilangkan margin dan scrollbar bawaan agar iframe tampil penuh 100% di layar hp/laptop */
+        body, html { 
+            margin: 0; 
+            padding: 0; 
+            height: 100%; 
+            overflow: hidden; 
+            background-color: #f4f7f6; 
+        }
+        iframe { 
+            width: 100%; 
+            height: 100%; 
+            border: none; 
+            display: block; 
+        }
+  </style>
 </head>
 <body>
 
     <iframe id="appFrame" src=""></iframe>
 
     <script>
-        // MASUKKAN URL GOOGLE APPS SCRIPT ANDA DI BAWAH INI
-        // Ganti tulisan di dalam tanda kutip dengan link Apps Script Anda yang berakhiran /exec
-        const googleScriptUrl = "https://script.google.com/macros/s/AKfycbzebZuQ3E4wJeIN2D7QR660ZyQB_SNUdfdAfF3RRETgITCs7rd4pb8u-SnuOcD-LoMmGg/exec";
+        // URL Google Apps Script Utama
+        var googleScriptUrl = "https://script.google.com/macros/s/AKfycbzebZuQ3E4wJeIN2D7QR660ZyQB_SNUdfdAfF3RRETgITCs7rd4pb8u-SnuOcD-LoMmGg/exec";
 
-        // TANGKAP PARAMETER DARI DOMAIN ANDA (Agar link kupon atau halaman lain tetap jalan)
-        const currentParams = window.location.search;
+        // Menangkap parameter dari domain utama (Misal: ?page=surat_kuasa atau ?page=susulan)
+        var currentParams = window.location.search || "";
 
-        // GABUNGKAN DAN MUAT KE DALAM FRAME
-        document.getElementById("appFrame").src = googleScriptUrl + currentParams;
+        // Penggabungan URL yang aman agar parameter tidak rusak saat dimuat oleh iframe
+        var finalUrl = googleScriptUrl + currentParams;
+
+        // Memasukkan URL final ke dalam src iframe
+        document.getElementById("appFrame").src = finalUrl;
     </script>
 
 </body>
