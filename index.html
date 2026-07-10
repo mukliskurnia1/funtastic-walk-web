@@ -1,32 +1,31 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sumedang Funtastic Walk 2026</title>
-    <link rel="icon" href="https://res.cloudinary.com/dvvjbnjzd/image/upload/v1234567/logo_anda.jpg" type="image/png">
-    <style>
-        body { background-color: #f4f7f6; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
-        .loader-container { text-align: center; }
-        .spinner { border: 4px solid rgba(0, 0, 0, 0.1); width: 40px; height: 40px; border-radius: 50%; border-left-color: #d84b22; animation: spin 1s linear infinite; margin: 0 auto 15px auto; }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sumedang Funtastic Walk 2026</title>
+    <link rel="icon" href="https://res.cloudinary.com/dvvjbnjzd/image/upload/v1234567/logo_anda.jpg" type="image/png">
+    <style>
+        /* Menghilangkan pinggiran agar web Google tampil penuh 100% layar */
+        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background-color: #f4f7f6; }
+        iframe { width: 100%; height: 100%; border: none; display: block; }
+    </style>
 </head>
 <body>
 
-    <div class="loader-container">
-        <div class="spinner"></div>
-        <h3 style="color: #333;">Mengalihkan ke Sistem Funtastic Walk...</h3>
-        <p style="color: #666; font-size: 0.9rem;">Mohon tunggu sebentar.</p>
-    </div>
+    <iframe id="appFrame" src=""></iframe>
 
-    <script>
-        const googleScriptUrl = "https://script.google.com/macros/s/AKfycbzebZuQ3E4wJeIN2D7QR660ZyQB_SNUdfdAfF3RRETgITCs7rd4pb8u-SnuOcD-LoMmGg/exec";
-        const currentParams = window.location.search || "";
-        
-        // PERBAIKAN: Menggunakan window.top.location.href untuk menjebol keluar dari iframe
-        window.top.location.href = googleScriptUrl + currentParams;
-    </script>
+    <script>
+        // MASUKKAN URL GOOGLE APPS SCRIPT ANDA DI BAWAH INI
+        // Ganti tulisan di dalam tanda kutip dengan link Apps Script Anda yang berakhiran /exec
+        const googleScriptUrl = "https://script.google.com/macros/s/AKfycbzebZuQ3E4wJeIN2D7QR660ZyQB_SNUdfdAfF3RRETgITCs7rd4pb8u-SnuOcD-LoMmGg/exec";
+
+        // TANGKAP PARAMETER DARI DOMAIN ANDA (Agar link kupon atau halaman lain tetap jalan)
+        const currentParams = window.location.search;
+
+        // GABUNGKAN DAN MUAT KE DALAM FRAME
+        document.getElementById("appFrame").src = googleScriptUrl + currentParams;
+    </script>
 
 </body>
 </html>
